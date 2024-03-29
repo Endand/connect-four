@@ -13,11 +13,12 @@ class Player
          input=gets.strip
          begin
             input=Integer(input)
-            bound_out_msg unless input.positive?
+            
          rescue ArgumentError
             not_int_msg
             input=-1
          end
+         bound_out_msg unless (1..7).include?(input)
       end
       input-1
    end
