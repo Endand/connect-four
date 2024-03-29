@@ -10,6 +10,6 @@ class Game
    end
 
    def play
-      puts "played a game"
+      player1.choose_col
    end
 end

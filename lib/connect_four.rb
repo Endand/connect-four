@@ -11,7 +11,8 @@ class ConnectFour
       game=Game.new(player1_name,player2_name)
       game.play
       while play_again?
-         game.board.reset
+         player1_name,player2_name = swap_names(player1_name,player2_name)
+         game=Game.new(player1_name,player2_name)
          game.play
       end
       end_message
@@ -19,6 +20,14 @@ class ConnectFour
 
    def greeting 
       puts "\nWelcome to Connect Four!\n"
+   end
+
+   def swap_names(name1,name2)
+      temp=name1
+      name1=name2
+      name2=temp
+
+      return name1,name2
    end
 
    def get_name(player_num)
