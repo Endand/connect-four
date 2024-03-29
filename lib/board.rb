@@ -37,5 +37,8 @@ class Board
       @game_board = Array.new(6) { Array.new(7) { " " } }
    end
 
+   def full?
+      @game_board[0].none? {|col| col==' '}
+   end
 end
 

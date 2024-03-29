@@ -120,4 +120,26 @@ describe Board do
          expect { board.display }.to output(expected_output).to_stdout
       end
    end
+
+   describe "#full?" do
+    context "when the board is not full" do
+      it "returns false" do
+        board = Board.new
+        expect(board.full?).to be_falsey
+      end
+    end
+    
+    context "when the board is full" do
+      it "returns true" do
+        # Fill the entire board with tokens
+        board = Board.new
+        (0..5).each do |row|
+          (0..6).each do |col|
+            board.game_board[row][col] = 'X'  # Assuming 'X' represents a token
+          end
+        end
+        expect(board.full?).to be_truthy
+      end
+    end
+  end
 end
