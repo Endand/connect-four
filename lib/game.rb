@@ -16,6 +16,6 @@ class Game
    end
 
    def play
-      puts "played game"
+      
    end
 end
