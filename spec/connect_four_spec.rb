@@ -1,27 +1,23 @@
 require_relative '../lib/connect_four'
 
 describe ConnectFour do
-   describe "#initialize" do
-      context "sets up board and players" do
-         let(:connect_four) {described_class.new}
-         it "creates an empty board" do
-         allow(connect_four).to receive(:gets).and_return("Jo", "Cat")
-         expect(connect_four.board.game_board).to eq(Array.new(6) { Array.new(7) { " " } })
-         end
-         it "sets two players" do
-            allow(connect_four).to receive(:gets).and_return("Jo", "Cat")
-            expect(connect_four.player1.name).to eq("Jo")
-            expect(connect_four.player2.name).to eq("Cat")
-         end
-      end
-   end
+  let(:connect_four) { ConnectFour.new }
 
-   describe "#play" do
+  describe "#start" do
+    
+  end
 
-   end
+  describe "#play_again?" do
+    it "returns true if user inputs 'y'" do
+      allow(connect_four).to receive(:gets).and_return("y\n")
+      expect(connect_four.play_again?).to be true
+    end
 
-   describe "#again" do
+    it "returns false if user inputs 'n'" do
+      allow(connect_four).to receive(:gets).and_return("n\n")
+      expect(connect_four.play_again?).to be false
+    end
+  end
 
-   end
-
+  
 end
