@@ -5,4 +5,4 @@ require_relative './game'
 require_relative './player'
 require_relative './board'
 
-ConnectFour.new.play
+ConnectFour.new.start

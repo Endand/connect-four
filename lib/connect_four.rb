@@ -3,31 +3,38 @@ require_relative './player'
 require_relative './board'
 #Handles overall game flow and interactions
 class ConnectFour
-   attr_reader :board, :player1, :player2
-   def initialize 
+   
+   def start 
       greeting
-      @board = Board.new
-      black='⚫'
-      white='⚪'
-      ask_name(1)
-      @player1 = Player.new(gets,black)
-      ask_name(2)
-      @player2 = Player.new(gets,white)
-      play
+      game=Game.new
+      game.play
+      while play_again?
+         game.board.reset
+         game.play
+      end
+      end_message
     end
 
    def greeting 
       puts "\nWelcome to Connect Four!\n"
    end
 
-   def ask_name(player_num)
-      puts "\nPlease enter name for player #{player_num}: "
+   def play_again?
+      ans=ask_again
+      ans=='y' ? true : false
    end
 
-   def play
-      
+   def ask_again
+      puts "Play Again? (Y/N)"
+      ans=''
+      until ans=='y' || ans=='n'
+         ans=gets.strip.downcase[0]
+      end
+      ans
    end
 
-   
+   def end_message
+      puts "\nThank you for playing!\n"
+   end
 
 end
