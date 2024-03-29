@@ -34,7 +34,7 @@ class Board
    end
    
    def reset
-   
+      @game_board = Array.new(6) { Array.new(7) { " " } }
    end
 
 end

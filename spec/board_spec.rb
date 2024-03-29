@@ -16,7 +16,7 @@ describe Board do
    end
 
    describe "#display" do
-      let(:board) { described_class.new }
+      subject(:board) { described_class.new }
       context "displays current board state" do
          
          it "shows empty board in the beginning" do
@@ -96,6 +96,28 @@ describe Board do
    end
 
    describe "#reset" do
+      subject(:board) { described_class.new }
+      black = '⚫'
       
+      it "clears the board" do
+         board.mark_cell(black,2)
+         board.reset
+         expected_output = <<~BOARD
+               +----+----+----+----+----+----+----+
+               |    |    |    |    |    |    |    |
+               +----+----+----+----+----+----+----+
+               |    |    |    |    |    |    |    |
+               +----+----+----+----+----+----+----+
+               |    |    |    |    |    |    |    |
+               +----+----+----+----+----+----+----+
+               |    |    |    |    |    |    |    |
+               +----+----+----+----+----+----+----+
+               |    |    |    |    |    |    |    |
+               +----+----+----+----+----+----+----+
+               |    |    |    |    |    |    |    |
+               +----+----+----+----+----+----+----+
+               BOARD
+         expect { board.display }.to output(expected_output).to_stdout
+      end
    end
 end
