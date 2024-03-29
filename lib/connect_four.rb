@@ -6,7 +6,9 @@ class ConnectFour
    
    def start 
       greeting
-      game=Game.new
+      player1_name=get_name(1)
+      player2_name=get_name(2)
+      game=Game.new(player1_name,player2_name)
       game.play
       while play_again?
          game.board.reset
@@ -17,6 +19,15 @@ class ConnectFour
 
    def greeting 
       puts "\nWelcome to Connect Four!\n"
+   end
+
+   def get_name(player_num)
+      ask_name(player_num)
+      name=gets.strip.capitalize
+   end
+
+   def ask_name(player_num)
+      puts "\nPlease enter name for player #{player_num}: "
    end
 
    def play_again?
