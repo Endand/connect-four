@@ -4,7 +4,7 @@ require_relative './board'
 #Handles overall game flow and interactions
 class ConnectFour
    
-   def start 
+   def play 
       greeting
       player1_name=get_name(1)
       player2_name=get_name(2)
