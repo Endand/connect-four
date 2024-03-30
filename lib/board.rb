@@ -7,6 +7,7 @@ class Board
    end
    
    def display
+      puts "\nCurrent Board State:\n\n"
       # Display top border
       puts "+----" * 7 + "+"
 

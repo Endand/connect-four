@@ -10,6 +10,22 @@ class Game
    end
 
    def play
-      player1.choose_col
+      winner=nil
+      turn=1
+      until winner || @board.full?
+         player = turn.odd? ? @player1 : @player2
+
+         board.display
+
+         #check if player can choose this col
+         player.choose_col
+
+         #fill in the cell accordingly
+
+         #check if it's a win
+         
+
+         turn+=1
+      end
    end
 end
