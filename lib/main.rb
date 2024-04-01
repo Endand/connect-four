@@ -1,4 +1,4 @@
-#Starts the game
+# Starts the game
 
 require_relative './connect_four'
 require_relative './game'
