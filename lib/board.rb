@@ -25,13 +25,18 @@ class Board
       end
    end
    
-   #marks cell and return false if the column is full
+   #marks cell and returns row and col for it
    def mark_cell(color,col)
       row=5
       until row<0 || @game_board[row][col]==" "
          row-=1
       end
       @game_board[row][col] = color if row >= 0
+      return [row,col]
+   end
+
+   def check_color(row,col)
+      @game_board[row][col]
    end
 
    def can_put?(col)

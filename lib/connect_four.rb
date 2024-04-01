@@ -13,6 +13,7 @@ class ConnectFour
       while play_again?
          player1_name,player2_name = swap_names(player1_name,player2_name)
          game=Game.new(player1_name,player2_name)
+         new_game_msg
          game.play
       end
       end_message
@@ -55,6 +56,10 @@ class ConnectFour
 
    def end_message
       puts "\nThank you for playing!\n"
+   end
+
+   def new_game_msg
+      puts "\nNew Game!\n"
    end
 
 end
