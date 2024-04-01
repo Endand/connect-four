@@ -18,14 +18,24 @@ class Game
          board.display
 
          #check if player can choose this col
-         player.choose_col
+         player_choice = player.choose_col
+         until @board.can_put?(player_choice)
+            @board.cant_choose_msg
+            player_choice = player.choose_col
+         end
 
          #fill in the cell accordingly
+         @board.mark_cell(player.color,player_choice)
 
          #check if it's a win
          
 
          turn+=1
       end
+      board.display
    end
+end
+
+def tie_msg
+   puts "\nBoard is full! It's a tie!\n"
 end

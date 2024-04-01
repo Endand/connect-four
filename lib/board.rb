@@ -31,7 +31,11 @@ class Board
       until row<0 || @game_board[row][col]==" "
          row-=1
       end
-      row >= 0 ? (@game_board[row][col] = color) : false
+      @game_board[row][col] = color if row >= 0
+   end
+
+   def can_put?(col)
+      @game_board[0][col]==" " ? true : false
    end
    
    def reset
@@ -40,6 +44,10 @@ class Board
 
    def full?
       @game_board[0].none? {|col| col==' '}
+   end
+
+   def cant_choose_msg
+      puts "\nThat column is full!\n"
    end
 end
 

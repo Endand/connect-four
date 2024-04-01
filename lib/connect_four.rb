@@ -45,7 +45,7 @@ class ConnectFour
    end
 
    def ask_again
-      puts "Play Again? (Y/N)"
+      puts "\nPlay Again? (Y/N)\n"
       ans=''
       until ans=='y' || ans=='n'
          ans=gets.strip.downcase[0]
